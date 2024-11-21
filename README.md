@@ -1,47 +1,51 @@
-# **Natural Language Processing (NLP) Project**
+# **NLP Sentiment Analysis Project**
 
 ## 📖 **Description**
-Ce projet explore les concepts fondamentaux du **Natural Language Processing (NLP)**, en utilisant un dataset spécifique pour illustrer les étapes du traitement automatique du langage naturel.  
-Il inclut des techniques telles que :
-- Le prétraitement des données textuelles (tokenisation, suppression des stopwords, lemmatisation, etc.).
-- La vectorisation des mots avec des outils comme **Word2Vec**.
-- Des visualisations et exemples pratiques disponibles dans le notebook Colab.
+Ce projet explore trois méthodes différentes pour effectuer une analyse des sentiments sur un ensemble de données contenant des avis clients. L'objectif est de comparer ces méthodes en termes de complexité et de précision.
 
 ---
 
-## 📂 **Contenu principal**
-### **1. Dataset**
-- Le fichier utilisé dans ce projet est disponible dans le dossier `dataset/` :
-  - Nom du fichier : `reviews.csv`
-  - Description : Un jeu de données contenant des avis clients utilisés pour une analyse de sentiment.
+## ⚙️ **Méthodes utilisées**
+1. **Naive Bayes**
+   - Un classificateur bayésien naïf est utilisé sur des données prétraitées.  
+   - **Résultat** : Méthode simple et rapide avec des performances limitées sur des textes complexes.
 
-### **2. Notebook Google Colab**
-- Le code complet pour ce projet est disponible dans un notebook Google Colab.  
-  Accédez-y directement via ce lien :  
-  👉 [**Lien vers le notebook Google Colab**](https://colab.research.google.com/drive/your-link-here)
+2. **BERT avec Logistic Regression**
+   - Les embeddings des avis sont extraits via **BERT** et classifiés à l'aide d'une régression logistique.  
+   - **Résultat** : Performances solides avec une bonne compréhension contextuelle des textes.
 
-### **3. Présentation**
-- Une présentation PowerPoint expliquant les concepts et l'historique de Word2Vec est incluse dans ce repository.  
-  Chemin du fichier : `presentation/NLP_Presentation.pptx`
+3. **BERT avec LSTM**
+   - Les vecteurs d'embeddings de **BERT** sont combinés avec un réseau LSTM pour capturer les relations séquentielles dans les données textuelles.  
+   - **Résultat** : Meilleures performances globales grâce à une meilleure capture des relations complexes dans les avis.
 
-### **4. Script Python**
-- Les fonctions de prétraitement du texte (tokenisation, suppression des stopwords, etc.) sont regroupées dans un script Python.  
-  Chemin du fichier : `scripts/preprocessing.py`
+---
+## 📂 **Dataset**
+- Nom du fichier : `dataset/db_reviews.csv`
+- Description : Ce dataset contient des avis clients et leurs sentiments associés.
+  - **Colonnes** :
+    - `review` : Texte de l'avis.
+    - `sentiment` : Label indiquant le sentiment (0 = négatif, 1 = positif).
+
+## 📝 **Lien vers le notebook**
+Si vous préférez utiliser Google Colab pour exécuter ce projet, suivez le lien ci-dessous :  
+👉 [**Notebook sur Google Colab**]([https://colab.research.google.com/drive/your-link-here](https://colab.research.google.com/drive/1hXr8TxsBZ6DJwc02jVCKnx79p09o-uHF?usp=sharing))  
+Ce notebook contient une version interactive du code et vous permettra de tester les trois méthodes directement dans un environnement cloud.
+---
+## 📊 **Résumé des résultats**
+| Méthode                  | Précision   | Avantages                              | Inconvénients                          |
+|--------------------------|-------------|----------------------------------------|----------------------------------------|
+| **Naive Bayes**          | Basique     | Rapide, facile à mettre en œuvre       | Peu performant sur des textes complexes |
+| **BERT + Logistic Regression** | Bonne        | Équilibre entre rapidité et précision | Plus complexe à configurer            |
+| **BERT + LSTM**          | Excellente  | Capture des relations complexes        | Nécessite plus de ressources           |
 
 ---
 
-## 📊 **Résultats attendus**
-- Prétraitement des données textuelles pour une meilleure analyse.
-- Représentation vectorielle des mots avec des techniques modernes comme **Word2Vec**.
-- Analyse de relations sémantiques dans les données, avec des exemples célèbres comme *"King - Man + Woman = Queen"*.
-- Visualisation des embeddings des mots dans un espace vectoriel.
+## 📝 **Conclusion**
+Les trois méthodes montrent des performances variées en fonction de leurs complexités et capacités :
+- **Naive Bayes** convient pour des tâches rapides mais simples.
+- **BERT avec Logistic Regression** offre un bon compromis entre performances et simplicité.
+- **BERT avec LSTM** est la méthode la plus précise, adaptée aux analyses avancées des sentiments.
 
----
+En résumé, les modèles basés sur **BERT** surpassent largement les méthodes traditionnelles pour cette tâche, avec des performances maximales atteintes en combinant BERT et LSTM.
 
-## 🤝 **Contributions**
-Si vous souhaitez proposer des améliorations, signaler un problème ou partager vos idées, n’hésitez pas à ouvrir une **issue** ou une **pull request**.
 
----
-
-## 📜 **Licence**
-Ce projet est sous licence MIT. Consultez le fichier `LICENSE` pour plus de détails.
